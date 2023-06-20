@@ -72,6 +72,6 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-## COMANDO INSTART PROJECT
+## COMANDO START PROJECT
 
 npx @nestjs/cli new nome do projeto desejado
