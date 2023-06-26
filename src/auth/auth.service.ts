@@ -84,7 +84,8 @@ export class AuthService{
 
     async register(data: AuthRegisterDTO){
         const UserExistente = await this.UserJaCadastrado(data.email)
-        console.log(UserExistente)
+/*         console.log(UserExistente)
+        console.log(JSON.stringify(UserExistente)) */
         if(UserExistente){
             console.log("entrou if")
             throw new ConflictException("Usuário já existe")
