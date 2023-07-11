@@ -11,7 +11,7 @@ export class AuthService{
                 private readonly prisma: PrismaService,
                 private readonly userService: UserServices){}
 
-    async createToken(user:User){
+     createToken(user:User){
         return this.jwtService.sign({
             id:user.id,
             name: user.name,
@@ -24,7 +24,7 @@ export class AuthService{
         });
     }
 
-    async checkToken(token: string){
+     checkToken(token: string){
         try{
             const data =  this.jwtService.verify(token,{
                 audience: 'users',
