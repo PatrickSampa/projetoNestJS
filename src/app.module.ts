@@ -7,12 +7,13 @@ import { AuthModule } from './auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { ThrottlerGuard } from '@nestjs/throttler/dist/throttler.guard';
 import { APP_GUARD } from '@nestjs/core';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [forwardRef(() => UserModule), forwardRef(() => AuthModule), ThrottlerModule.forRoot({
     ttl: 60,
     limit: 100
-  })],
+  }), ConfigModule.forRoot()],
   controllers: [AppController],
   providers: [AppService, {
     provide: APP_GUARD,
