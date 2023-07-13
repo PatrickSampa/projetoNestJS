@@ -1,9 +1,10 @@
-import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
+import { CanActivate, ExecutionContext, Injectable, Inject } from "@nestjs/common";
 import { AuthService } from "src/auth/auth.service";
 import { UserServices } from "src/user/user.services";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+    
         constructor(private readonly authService: AuthService,
            private readonly userService: UserServices){}
 
@@ -19,9 +20,9 @@ export class AuthGuard implements CanActivate {
             request.user = await this.userService.show(data.id)
             return true;
         }catch (e){
-
+            return false
         }
         
-        return false;
+        
     }
 }
